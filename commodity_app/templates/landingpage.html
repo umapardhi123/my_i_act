@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AI - platform</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/lightslider.css' %}" />   
+
+  <style>
+    .icon-box{
+      height: 475px!important;
+    }
+  </style>
+
+
+  <!-- =======================================================
+  * Template Name: BizLand - v3.10.0
+  * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:info@acceronint.com">info@acceronint.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+91 70392 05886</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="{% url 'landingpage' %}"><img src="{% static 'assets/img/acceron.png' %}" alt=""><span></span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'landingpage' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#footer">About</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'user_settings' %}">Users settings</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <ul>
+              <!-- <li><a href="#">Drop Down 1</a></li> -->
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h1>Welcome to <span>AI platflorm</span></h1>
+      <h2>Now empower your business with our world class technological, capabilities, effective and inovative methodologies and data solutions.</h2>
+      <div class="d-flex">
+        <a href="#main" class="btn-get-started scrollto">Get Started</a>
+        <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <!-- <div class="row">
+        <span class=" text m-3" style="font-size: 25px;font-weight: 800px;">AAPL INC</span>
+        <div class="slider-news">
+            <ul id="lightSlider">
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body ">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <li>
+                            <h6><a style="text-decoration: none;color: #181B31;" href="https://finance.yahoo.com/news/tesla-ceo-elon-musk-would-be-silly-to-slash-prices-again-analyst-says-210941421.html">Tesla CEO Elon Musk would 'be silly' to slash prices again, analyst says</a></h6>
+                            <p>Lorem ipsum Cupidatat quis pariatur anim.</p>
+                            <span>18 hours ago</span>
+                        </li>
+                    </div>
+                </div>
+            
+              </ul>
+        </div>
+    </div> -->
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+         <ul id="lightSlider" class="lightslider">
+          {% if 1 in modules %}
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" style="heght">
+              <li>
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                  <h4 class="title"><a href="{% url 'ocr' %}" target="_blank">Optical Character Recognition.</a></h4>
+                  <p class="description">Optical Character Recognition (OCR) is the process that converts an image of text into a machine-readable text format. For example, if you scan a form or a receipt, your computer saves the scan as an image file. You cannot use a text editor to edit, search, or count the words in the image file.</p>
+                </div>
+              </li>
+            </div>
+            {% endif %}
+            {% if 2 in modules %}
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <li>
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon"><i class="bx bx-file"></i></div>
+                  <h4 class="title"><a href="{% url 'objectcount' %}" target="_blank">Object Counting</a></h4>
+                  <p class="description">The goal of Object Counting task is to count the number of object instances in a single image or video sequence. It has many real-world applications such as traffic flow monitoring, crowdedness estimation, and product counting.</p>
+                </div>
+              </li>
+            </div>
+            {% endif %}
+            {% if 3 in modules %}
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <li>
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon"><i class="bx bx-tachometer"></i></div>
+                  <h4 class="title"><a href="{% url 'massupdate' %}" target="_blank">Mass Update</a></h4>
+                  <p class="description">The Mass Update feature enables you to make changes to the data of large groups of people. For example, you can use the Mass Update feature to perform company-wide compensation increases, department transfers, job code changes, labor agreement changes, and reorganizations.</p>
+                </div>
+              </li>
+            </div>
+            {% endif %}
+            {% if 4 in modules %}
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <li>
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <div class="icon"><i class="bx bx-world"></i></div>
+                  <h4 class="title"><a href="{% url 'commodity' %}" target="_blank">Commodity Stocks</a></h4>
+                  <p class="description">Products used for commerce that are traded on a separate, authorized commodities exchange. Commodities include agricultural products and natural resources such as timber, oil and metals. Commodities are the basis for futures contracts traded on these exchanges.</p>
+                </div>
+              </li>
+            </div>
+            {% endif %}
+            {% if 5 in modules %}
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <li>
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+                  <h4 class="title"><a href="{% url 'stock_predictions'  %}" target="_blank">Stock Predictions</a></h4>
+                  <p class="description">A stock market prediction is an attempt to forecast the future value of an individual stock, a particular sector or the market, or the market as a whole.</p>
+                </div>
+              </li>
+            </div>
+            {% endif %}
+         </ul>
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <h4>Mail US</h4>
+            <p>If you have any query..!!</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Mail">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Acceron International<span></span></h3>
+            <p>
+              Chicago, United States.<br>             
+              <strong>Phone:</strong> +91 70392 05886<br>
+              <strong>Email:</strong> info@acceronint.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Statistical</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Programming</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Data Visualization</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Data pipelines</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>If you have any doubts and questions can directly contact us in this Social links</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Acceron International</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="{% static 'js/lightslider.js' %}"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $("#lightSlider").lightSlider({
+            item: 3,
+            autoWidth: false,
+            slideMove: 1, // slidemove will be 1 if loop is true
+            slideMargin: 10,
+     
+            addClass: '',
+            mode: "slide",
+            useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
+     
+            speed: 400, //ms'
+            auto: false,
+            loop: false,
+            slideEndAnimation: true,
+            pause: 2000,
+     
+            keyPress: false,
+            controls: true,
+            prevHtml: '',
+            nextHtml: '',
+     
+            rtl:false,
+            adaptiveHeight:false,
+     
+            vertical:false,
+            verticalHeight:500,
+            vThumbWidth:100,
+     
+            thumbItem:10,
+            pager: true,
+            gallery: false,
+            galleryMargin: 5,
+            thumbMargin: 5,
+            currentPagerPosition: 'middle',
+     
+            enableTouch:true,
+            enableDrag:true,
+            freeMove:true,
+            swipeThreshold: 40,
+     
+            responsive : [],
+     
+            onBeforeStart: function (el) {},
+            onSliderLoad: function (el) {},
+            onBeforeSlide: function (el) {},
+            onAfterSlide: function (el) {},
+            onBeforeNextSlide: function (el) {},
+            onBeforePrevSlide: function (el) {}
+        });
+
+        
+    });
+
+    
+    </script>  
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <!-- <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lightslider.css' %}" />  
+    <link id="pagestyle" href="{% static 'css/argon-dashboard.css' %}" rel="stylesheet" />
+ 
+
+    <title>Hello, world!</title>
+    <style>
+        /* body{
+            background-color: lightgrey;
+        } */
+        /* .card{
+            box-shadow: 5px;
+        } */
+    </style>
+  </head>
+  <body class="g-sidenav-show   bg-gray-100">
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+
+     <!-- Navbar -->
+     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
+     data-scroll="false">
+     <div class="container-fluid py-1 px-3">
+       <nav aria-label="breadcrumb">
+         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+           <!-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li> -->
+           <!-- <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li> -->
+         </ol>
+         <!-- <h6 class="font-weight-bolder text-white mb-0"><a href="{% url 'landingpage' %}"><span><i class="fa fa-arrow-left" aria-hidden="true" style="color:white"></i></span></a>&nbsp;&nbsp;Mass Update</h6> -->
+         <span><img src="{% static 'img/acceron.png' %}" alt="acceron" style="height:40px"></span>
+         
+
+       </nav>
+       <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+           <div class="input-group">
+             <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+             <input type="text" class="form-control" placeholder="Type here...">
+           </div>
+         </div>
+         <ul class="navbar-nav  justify-content-end">
+           <!-- <li class="nav-item d-flex align-items-center">
+             <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+               <i class="fa fa-user me-sm-1"></i>
+               <span class="d-sm-inline d-none">Sign In</span>
+             </a>
+           </li> -->
+           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+             <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+               <div class="sidenav-toggler-inner">
+                 <i class="sidenav-toggler-line bg-white"></i>
+                 <i class="sidenav-toggler-line bg-white"></i>
+                 <i class="sidenav-toggler-line bg-white"></i>
+                 </div>
+             </a>
+           </li>
+          
+         
+         </ul>
+       </div>
+     </div>
+   </nav>
+
+      <div class="container-fluid mt-2 ">
+       <div class="card">
+        <ul class="nav nav-tabs p-3" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="date-tab" data-bs-toggle="tab" data-bs-target="#date" type="button" role="tab" aria-controls="date" aria-selected="true">Date</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="source-tab" data-bs-toggle="tab" data-bs-target="#source" type="button" role="tab" aria-controls="source" aria-selected="false">Source</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="type-tab" data-bs-toggle="type" data-bs-target="#type" type="button" role="tab" aria-controls="type" aria-selected="false">Type</button>
+            </li>
+          </ul>
+          <div class="tab-content p-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="date" role="tabpanel" aria-labelledby="date-tab">
+                <div class="col-lg-12" style="padding:20px">
+                    <div class="card">
+                        <div class="card-header">Attributed Conversions</div>
+                        <div class="card-body">                          
+                          <canvas id="mychart" width="700" height="300"></canvas>
+              
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="padding:20px">
+                  <div class="card">
+                      <div class="card-header">Attributed Revenue</div>
+                      <div class="card-body">                        
+                        <canvas id="revenue" width="700" height="300"></canvas>
+              
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-12" style="padding:20px">
+                <div class="card">
+                    <div class="card-header">Spends</div>
+                    <div class="card-body">                        
+                      <canvas id="spends" width="700" height="300"></canvas>
+            
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="source" role="tabpanel" aria-labelledby="source-tab">
+                <div class="col-lg-12" style="padding:20px">
+                    <div class="card">
+                        <div class="card-header">Attributed Conversions</div>
+                        <div class="card-body">                          
+                          <canvas id="source" width="700" height="300"></canvas>
+              
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12" style="padding:20px">
+                  <div class="card">
+                      <div class="card-header">Attributed Revenue</div>
+                      <div class="card-body">                        
+                        <canvas id="source_revenue" width="700" height="300"></canvas>
+              
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-12" style="padding:20px">
+                <div class="card">
+                    <div class="card-header">Spends</div>
+                    <div class="card-body">                        
+                      <canvas id="source_spends" width="700" height="300"></canvas>
+            
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="type" role="tabpanel" aria-labelledby="type-tab">...</div>
+          </div>
+       </div>
+      </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'charts/Chart.bundle.js' %}"></script>
+    <script src="{% static 'charts/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'charts/Chart.js' %}"></script>
+    <script src="{% static 'charts/Chart.min.js' %}"></script>
+    <!-- Page level plugins -->
+    <!-- <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script> -->
+    <!-- <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script> -->
+
+    <!-- Page level custom scripts -->
+    <!-- <script src="{% static 'js/demo/datatables-demo.js' %}"></script> -->
+    <script src='https://cdn.plot.ly/plotly-2.18.0.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+    <!-- <script src="{% static 'js/lightslider.js' %}"></script> -->
+   <script>
+    var canvas = document.getElementById("mychart");
+var ctx = canvas.getContext('2d');
+
+// Global Options:
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 16;
+
+var data = {
+  labels: {{d_date|safe}},
+  datasets: [{
+      label: " Attributed Conversions",
+      fill: true,
+      lineTension: 0.1,
+      backgroundColor: "#bed3fd",
+      borderColor: "#645df9",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "white",
+      pointBackgroundColor: "#645df9",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "#645df9",
+      pointHoverBorderColor: "#645df9",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      // notice the gap in the data and the spanGaps: false
+      data: {{d_attributed_conversions|safe}},
+      spanGaps: false,
+    }, 
+
+  ]
+};
+
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  scales: { xAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date',
+                            fontStyle: "bold",
+                        }
+                        }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                },
+                scaleLabel: {
+                     display: true,
+                     labelString: 'Attributed Conversions',
+                     fontSize: 20 
+                  }
+            }]            
+        }  
+};
+
+// Chart declaration:
+var myBarChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: options
+});
+
+
+
+var canvas = document.getElementById("revenue");
+var ctx = canvas.getContext('2d');
+
+// Global Options:
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 16;
+
+var data = {
+  labels: {{d_rev_date|safe}},
+  datasets: [{
+      label: " Attributed Revenue",
+      fill: true,
+      lineTension: 0.1,
+      backgroundColor: "#e5b8f4",
+      borderColor: "##c147e9",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "white",
+      pointBackgroundColor: "#c147e9",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "#c147e9",
+      pointHoverBorderColor: "#c147e9",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      // notice the gap in the data and the spanGaps: false
+      data: {{d_attributed_revenue|safe}},
+      spanGaps: false,
+    }, 
+
+  ]
+};
+
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  scales: { xAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date',
+                            fontStyle: "bold",
+                        }
+                        }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                },
+                scaleLabel: {
+                     display: true,
+                     labelString: 'Attributed Revenue',
+                     fontSize: 20 
+                  }
+            }]            
+        }  
+};
+
+// Chart declaration:
+var myBarChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: options
+});
+
+
+var canvas = document.getElementById("spends");
+var ctx = canvas.getContext('2d');
+
+// Global Options:
+Chart.defaults.global.defaultFontColor = 'black';
+Chart.defaults.global.defaultFontSize = 16;
+
+var data = {
+  labels: {{d_spend_date|safe}},
+  datasets: [{
+      label: " Spends",
+      fill: true,
+      lineTension: 0.1,
+      backgroundColor: "#a5c9ca",
+      borderColor: "#395b64",
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: "white",
+      pointBackgroundColor: "#395b64",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "#395b64",
+      pointHoverBorderColor: "#395b64",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      // notice the gap in the data and the spanGaps: false
+      data: {{d_spends|safe}},
+      spanGaps: false,
+    }, 
+
+  ]
+};
+
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  scales: { xAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date',
+                            fontStyle: "bold",
+                        }
+                        }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                },
+                scaleLabel: {
+                     display: true,
+                     labelString: 'Spends',
+                     fontSize: 20 
+                  }
+            }]            
+        }  
+};
+
+// Chart declaration:
+var myBarChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: options
+});
+
+
+
+   
+    
+   </script>
+  </body>
+</html>

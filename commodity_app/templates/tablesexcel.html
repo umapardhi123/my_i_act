@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <!-- <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+
+    <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/lightslider.css' %}" />  
+    <link id="pagestyle" href="{% static 'css/argon-dashboard.css' %}" rel="stylesheet" />
+ 
+    <style>
+         .table-responsive {
+      /* width: 30em; */
+      overflow-x: auto;      
+      white-space: nowrap;
+    }
+
+    .table-responsive::-webkit-scrollbar {
+      width: 1em;
+      height: 3px!important;
+    }
+
+    .table-responsive::-webkit-scrollbar-track {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      height: 3px!important;
+
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+      border-radius: 10px!important;
+      height: 3px !important;
+      background-color: rgb(109, 112, 113)!important;
+      outline: 1px solid slategrey!important;
+    }
+
+    .table-responsive::-webkit-scrollbar:vertical {
+      display: none;
+    }
+
+
+    .table-responsive::-webkit-scrollbar {
+  width: 100%;
+  overflow: hidden;
+}
+table td{
+  text-align: center;
+  color: #181B31;
+  border-top: 1px solid #EEF1F2;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: Montserrat, Verdana, sans-serif;
+}
+table th {
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: Montserrat, Verdana, sans-serif;
+
+}
+table th a{
+    text-decoration: none;
+}
+table td a{
+    text-decoration: none;
+}
+    </style>
+</head>
+<body style="background-color: #dadcdd;">
+    <div class="min-height-300 bg-primary position-absolute w-100"></div>
+
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur"
+    data-scroll="false">
+    <div class="container-fluid py-1 px-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <!-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li> -->
+          <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+          
+        </ol>
+        <!-- <h6 class="font-weight-bolder text-white mb-0"><img src="{% static 'img/acceron.png' %}" alt="" style="height:50px"></h6> -->
+      </nav>
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group">
+            <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" placeholder="Type here...">
+          </div>
+        </div>
+        <ul class="navbar-nav  justify-content-end">
+          <!-- <li class="nav-item d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+              <i class="fa fa-user me-sm-1"></i>
+              <span class="d-sm-inline d-none">Sign In</span>
+            </a>
+          </li> -->
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+                </div>
+            </a>
+          </li>
+         
+          <li class="nav-item dropdown pe-2 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa fa-bell cursor-pointer"></i>
+            </a>
+            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="{% static 'img/team-2.jpg' %}" class="avatar avatar-sm  me-3 ">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        <span class="font-weight-bold">New message</span> from Laur
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        13 minutes ago
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="mb-2">
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="my-auto">
+                      <img src="{% static 'img/small-logos/logo-spotify.svg' %}"
+                        class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        <span class="font-weight-bold">New album</span> by Travis Scott
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        1 day
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="d-flex py-1">
+                    <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                      <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>credit-card</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <g transform="translate(1716.000000, 291.000000)">
+                              <g transform="translate(453.000000, 454.000000)">
+                                <path class="color-background"
+                                  d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
+                                  opacity="0.593633743"></path>
+                                <path class="color-background"
+                                  d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                                </path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm font-weight-normal mb-1">
+                        Payment successfully completed
+                      </h6>
+                      <p class="text-xs text-secondary mb-0">
+                        <i class="fa fa-clock me-1"></i>
+                        2 days
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   
+    <div class="container-fluid">
+        <div class="row mt-2 p-2">
+           <!-- <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <label class="text-dark" for="company">Type</label>                                    
+                                <select class="form-select" id="company" name="company" type="text" required>
+                                    {% for v in types %}
+                                    <option  value="{{ v }}" >{{ v }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="text-dark" for="company">Source</label>                                    
+                                <select class="form-select" id="company" name="company" type="text" required>
+                                    {% for v in var %}
+                                    <option  value="{{ v}}" >{{ v }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="text-dark" for="company">Optimisation Target</label>                                    
+                                <select class="form-select" id="company" name="company" type="text" required>
+                                    {% for v in optitarget %}
+                                    <option  value="{{ v }}" >{{v}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+           </div> -->
+
+           <div class="col-lg-12 mt-2">
+            <div class="card shadow mb-4" >
+              <div class="card-header py-3"  >
+                  <h6 class="m-0 font-weight-bold">Excel data</h6>
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive" >
+                      <table class="table  " id="exceltable" cellspacing="0">
+                          <thead>
+                              <tr>
+                                <th style="background-color: #FAFAFA !important;" data-orderable="false"> Date </th>
+                                <th > <a href="#">Source </a> </th>                          
+                                <th > <a href="#"> Attributed Conversions  </a> </th>                          
+                                <th ><a href="#"> Attributed Revenue </a> </th>                          
+                                <th ><a href="#"> Type </a> </th>                          
+                                <th ><a href="#"> Spends</a> </th>      
+                                <th ><a href="#"> Partition ID </a> </th>                          
+                                <th ><a href="#"> Optimisation Target </a> </th>                          
+                       
+
+                              </tr>
+                          </thead>                            
+                          <tbody>
+                            {% for v in df.itertuples %}
+                            <tr>
+                              <td style="background-color: #FAFAFA !important;" ><a href="#">{{ v.date }}</a></td>
+                              <td>{{v.source}}</td>
+                              <td>{{ v.attributed_conversions }}</td>
+                              <td >{{ v.attributed_revenue }}</td>
+                              <td>{{ v.type }}</td>
+                              <td>{{v.spends}}</td>
+                              <td>{{ v.partition_id}}</td>
+                              <td>{{ v.optimisation_target }}</td>
+                            </tr>
+                            {% endfor %}            
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+           </div>
+
+        </div>
+    </div>
+
+
+    
+  <!--   Core JS Files   -->
+  <script src="{% static 'js/core/popper.min.js' %}"></script>
+  <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'js/plugins/smooth-scrollbar.min.js' %}"></script>
+  <script src="{% static 'js/plugins/chartjs.min.js' %}"></script>
+
+
+  <!-- Github buttons -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'js/argon-dashboard.min.js?v=2.0.4' %}"></script>
+  <script src="{% static 'js/argon-dashboard.js' %}"></script>
+  <script src="{% static 'js/argon-dashboard.min.js' %}"></script>
+  <script src="{% static 'js/argon-dashboard.js.map' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+
+  <!-- stock -->
+ 
+  <!--Chart JS -->
+<script src="{% static 'charts/Chart.bundle.js' %}"></script>
+<script src="{% static 'charts/Chart.bundle.min.js' %}"></script>
+<script src="{% static 'charts/Chart.js' %}"></script>
+<script src="{% static 'charts/Chart.min.js' %}"></script>
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+  <!-- <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script> -->
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+  <script src='https://cdn.plot.ly/plotly-2.18.0.min.js'></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+  <script src="{% static 'js/lightslider.js' %}"></script>
+  <script>
+//     $(document).ready(function() {
+//     $.ajax({
+//         url: '/tableshow/',
+//         // datatype: 'json',
+//         csrfmiddlewaretoken: '{{ csrf_token }}',
+//         data:data,
+//         type: 'POST',
+//         success: function (data) {
+//            $('#excel').html(data)
+//         }
+//     });
+// });
+
+// Call the dataTables jQuery plugin
+// $(document).ready(function() {
+//   $('#exceltable').DataTable();
+// });
+
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+    $('#exceltable').DataTable();
+});
+  </script>
+  
+</body>
+</html>

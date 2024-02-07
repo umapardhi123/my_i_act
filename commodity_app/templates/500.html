@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Internal server error </title>
+    <!-- Boxicons CDN Link -->
+    <link rel='stylesheet' type="text/css" href='{% static "css/bootstrap.min.css" %}'>
+    <!-- <link id="pagestyle" href="{% static 'css/argon-dashboard.css' %}" rel="stylesheet" />     -->
+    /* server-section */
+
+.server-page {
+    background: linear-gradient(180deg, #1E3058 0%, #344569 100%);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.server-section {
+    width: 100%;
+    max-width: 463px;
+    margin: 0 auto;
+}
+
+.server-section .server-logo-part .logo {
+    width: 100%;
+    max-width: 239px;
+    display: block;
+    margin: 0 auto 23px;
+}
+
+.server-section .server-content-part {
+    text-align: center;
+}
+
+.server-section h2 {
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 60px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.server-section h5 {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 34px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+}
+
+.server-section p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 44px;
+}
+
+.server-section .server-page-button {
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FFFFFF;
+    margin: 0 10px;
+    background: #256DFF;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.server-section .server-page-button:hover {
+    background-color: #0054ff;
+}
+
+@media screen and (max-width: 575px) {
+    .server-section .server-page-button {
+        max-width: 100%;
+        margin: 0 0 15px 0;
+    }
+    .server-section h2 {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .server-section h5 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .server-section p {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
+}
+</head>
+
+<body class="server-page">
+    <section class="server-section">
+        <div class="server-logo-part">
+            <img src="{% static 'img/risk-predictor-logo.svg' %}" class="logo" alt="REAM Risk Predictor">
+        </div>
+        <div class="server-content-part">
+            <h2>505</h2>
+            <h5>Internal server error</h5>
+            <p>Sorry. the content you’re looking for doesn’t exist. Either it was removed, or you mistyped the link.</p>
+            <button type="button" href="{% url 'login' %}" class="server-page-button btn btn-primary">Go to home page</button>
+            <button type="button" class="server-page-button btn btn-primary">Contact us</button>
+        </div>
+    </section>
+    <script  src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.min.js' %}"></script>
+    <script  src="{% static 'js/popper.min.js' %}"></script>
+    <script  src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>
